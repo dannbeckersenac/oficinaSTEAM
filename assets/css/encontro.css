@@ -1,0 +1,223 @@
+/* ============================================================
+   Fundamentos do Python I · camada visual do curso
+   Carregada depois do slides.css. Aproxima os slides do jeito
+   dos decks do docente: fundo claro, título no topo, ícones
+   coloridos grandes, pouca moldura e nenhuma faixa decorativa.
+   ============================================================ */
+
+:root {
+  --fundo:      #F2F3F5;
+  --cartao:     #FFFFFF;
+  --sombra:     0 2px 10px rgba(15, 23, 42, .07);
+
+  /* cores do IDLE (tema IDLE Classic), para o código parecer o que a turma vê na tela */
+  --idle-kw:    #FF7700;
+  --idle-fn:    #900090;
+  --idle-str:   #00AA00;
+  --idle-com:   #DD0000;
+  --idle-saida: #0000FF;
+  --idle-erro:  #C00000;
+}
+
+/* ---------- slide: fundo claro, título no topo ---------- */
+
+.slide { background: var(--fundo); padding: 48px 64px 40px; }
+.corpo { justify-content: flex-start; }
+
+/* o que vem depois do título ocupa o resto da altura, centrado */
+.miolo { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 0; }
+
+.slide h2 { margin-bottom: 18px; }
+
+/* rótulo pequeno acima do título: frase normal, sem caixa alta */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-bottom: 4px;
+}
+.slide.exercicio .eyebrow { color: #C9C5FF; }
+
+.slide p { color: var(--cinza-texto); }
+.slide.escuro p, .slide.exercicio p { color: inherit; }
+
+/* destaque e alerta sem faixa lateral: caixa arredondada */
+.destaque {
+  background: var(--cartao);
+  border-left: 0;
+  border-radius: 14px;
+  box-shadow: var(--sombra);
+  padding: 18px 26px;
+}
+.alerta {
+  border-left: 0;
+  border-radius: 14px;
+  padding: 18px 26px;
+}
+
+/* listas simples, como nos decks */
+.lista { margin: 0; padding-left: 34px; display: flex; flex-direction: column; gap: 12px; }
+.lista li { font-size: 27px; line-height: 1.4; color: var(--cinza-texto); }
+.lista li::marker { color: var(--azul); }
+.slide.escuro .lista li { color: #D7DFEC; }
+
+/* ---------- capa ---------- */
+
+.slide.capa { background: var(--fundo); }
+.slide.capa .corpo { justify-content: center; }
+.slide.capa h1 { color: var(--escuro); font-size: 64px; max-width: 16ch; }
+.slide.capa .sub { color: #5B6678; }
+.slide.capa .numero { font-size: 30px; font-weight: 700; color: var(--azul); margin: 0 0 10px; }
+.slide.capa .logo { position: absolute; top: 48px; right: 64px; width: 190px; }
+.slide.capa .python { position: absolute; right: 110px; bottom: 120px; width: 230px; }
+.slide.capa .rodape { color: #7C8AA5; }
+
+/* ---------- texto de um lado, ícone grande do outro ---------- */
+
+.lado-icone { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: center; }
+.lado-icone.esq { grid-template-columns: 300px 1fr; }
+.lado-icone > img { width: 100%; max-height: 320px; object-fit: contain; }
+
+/* pergunta para a turma, com o ícone de dúvida */
+.pergunta { display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: center; }
+.pergunta img { width: 100%; }
+.pergunta p { font-size: 40px; line-height: 1.3; font-weight: 700; color: var(--escuro); margin: 0; }
+.pergunta p + p { font-size: 28px; font-weight: 400; color: var(--cinza-texto); margin-top: 18px; }
+
+/* ---------- fileira de ícones com legenda ---------- */
+
+.icones { display: grid; gap: 28px; align-items: start; }
+.icones.n2 { grid-template-columns: repeat(2, 1fr); }
+.icones.n3 { grid-template-columns: repeat(3, 1fr); }
+.icones.n4 { grid-template-columns: repeat(4, 1fr); }
+.icones.n5 { grid-template-columns: repeat(5, 1fr); }
+.icones figure { margin: 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
+.icones img { width: 150px; height: 150px; object-fit: contain; }
+.icones.n5 img { width: 124px; height: 124px; }
+.icones .t { font-size: 26px; font-weight: 700; color: var(--escuro); line-height: 1.2; }
+.icones .d { font-size: 23px; color: #5B6678; line-height: 1.35; }
+.slide.escuro .icones .t { color: #FFFFFF; }
+.slide.escuro .icones .d { color: #B9C6DC; }
+
+/* ---------- linha do tempo ---------- */
+
+.tempo { display: grid; gap: 24px; position: relative; padding-top: 6px; }
+.tempo.n4 { grid-template-columns: repeat(4, 1fr); }
+.tempo::before {
+  content: ""; position: absolute; left: 6%; right: 6%; top: 27px;
+  height: 3px; background: #CBD3DF; border-radius: 3px;
+}
+.tempo figure { margin: 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; position: relative; }
+.tempo .ano {
+  font-size: 24px; font-weight: 700; color: #FFFFFF; background: var(--azul);
+  border-radius: 999px; padding: 6px 18px; position: relative;
+}
+.tempo img { width: 140px; height: 140px; object-fit: contain; margin-top: 8px; }
+.tempo .t { font-size: 25px; font-weight: 700; color: var(--escuro); line-height: 1.25; }
+.tempo .d { font-size: 23px; color: #5B6678; line-height: 1.3; }
+
+/* ---------- fotos ---------- */
+
+.perfil { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; }
+.perfil img { width: 300px; height: 300px; border-radius: 50%; object-fit: cover; }
+.perfil .nome { font-size: 38px; font-weight: 700; color: var(--escuro); margin: 0 0 14px; }
+.perfil p { font-size: 25px; }
+
+.fotos { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 18px; }
+.fotos img { width: 100%; height: 380px; object-fit: cover; border-radius: 14px; }
+
+.gif-lado { display: grid; grid-template-columns: 1fr 260px; gap: 48px; align-items: center; }
+.gif-lado img { width: 260px; border-radius: 14px; }
+
+/* ---------- cartões brancos com ícone ---------- */
+
+.cartoes .cartao { background: var(--cartao); border: 0; box-shadow: var(--sombra); }
+.cartao > img { width: 84px; height: 84px; object-fit: contain; }
+.slide.exercicio .cartao { background: rgba(255,255,255,.1); box-shadow: none; }
+
+
+/* ---------- janela do IDLE ----------
+   Variante do .codigo: fundo branco, barra de título no lugar do
+   rótulo de arquivo, cores do IDLE. O botão de copiar continua. */
+
+.codigo.idle {
+  background: #FFFFFF;
+  border: 1px solid #C9D0DA;
+  box-shadow: var(--sombra);
+}
+.codigo.idle .arquivo {
+  background: #E9ECF0;
+  color: #3B4556;
+  font-family: var(--sans);
+  font-size: 18px;
+  letter-spacing: 0;
+  border-bottom: 1px solid #C9D0DA;
+}
+.codigo.idle pre { color: #000000; background: #FFFFFF; }
+.codigo.idle .kw  { color: var(--idle-kw); }
+.codigo.idle .fn  { color: var(--idle-fn); }
+.codigo.idle .str { color: var(--idle-str); }
+.codigo.idle .com { color: var(--idle-com); font-style: normal; }
+.codigo.idle .num { color: #000000; }
+.codigo.idle .pr    { color: #8A8F98; user-select: none; }  /* o >>> do shell */
+.codigo.idle .saida { color: var(--idle-saida); }
+.codigo.idle .erro  { color: var(--idle-erro); }
+.codigo.idle .copiar-codigo { background: #FFFFFF; color: #3B4556; border-color: #C9D0DA; }
+.codigo.idle .copiar-codigo:hover { background: #F2F3F5; }
+
+/* duas janelas lado a lado */
+.janelas { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+.janelas .codigo { margin: 0; }
+
+/* saída de um programa, como aparece no shell depois do F5 */
+.legenda-janela { font-size: 23px; color: #5B6678; margin: 0 0 8px; }
+
+/* ---------- slide de intervalo ---------- */
+
+.slide.escuro.intervalo .corpo { justify-content: center; align-items: flex-start; }
+.slide.escuro.intervalo h2 { font-size: 66px; }
+
+/* ---------- rodapé e rótulos sem caixa alta ---------- */
+
+.rodape { font-family: var(--sans); font-size: 17px; letter-spacing: 0; text-transform: none; color: #8A96AA; }
+.lado .rotulo { font-family: var(--sans); font-size: 24px; letter-spacing: 0; text-transform: none; color: var(--escuro); }
+
+/* código dentro do slide roxo: chip translúcido, igual ao das tarefas */
+.slide.exercicio p code, .slide.exercicio li code {
+  background: rgba(255,255,255,.15); color: #FFFFFF;
+}
+
+/* foguinho em cima de uma figura (a fonte queimada da trajetória) */
+.com-fogo { position: relative; display: inline-block; }
+.com-fogo .fogo { position: absolute; top: -4px; right: -18px; font-size: 54px; line-height: 1; }
+
+/* cabeçalho de tabela em frase normal, sem caixa alta */
+th { font-family: var(--sans); font-size: 22px; letter-spacing: 0; text-transform: none; color: #5B6678; }
+
+/* ---------- analogia do restaurante (desenho do deck do docente) ----------
+   Caixa creme é o restaurante; cada figura e as setas têm posição fixa
+   dentro de uma área de 1152 x 500. */
+
+.restaurante { position: relative; width: 1152px; height: 500px; margin-top: 4px; }
+.restaurante .salao {
+  position: absolute; left: 196px; top: 64px; width: 950px; height: 430px;
+  background: #FFF4D2; border: 3px solid var(--escuro); border-radius: 6px;
+}
+.restaurante figure {
+  position: absolute; margin: 0; width: 200px;
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px;
+}
+.restaurante figure img { width: 116px; height: 116px; object-fit: contain; }
+.restaurante .t { font-size: 25px; font-weight: 700; color: var(--escuro); line-height: 1.15; }
+.restaurante .d { font-size: 22px; color: #4B5568; line-height: 1.2; }
+.restaurante .placa { position: absolute; left: 150px; top: 0; display: flex; align-items: center; gap: 12px; }
+.restaurante .placa img { width: 104px; height: 104px; }
+.restaurante .placa span { font-size: 25px; font-weight: 700; color: var(--escuro); }
+.restaurante svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.restaurante svg path { fill: none; stroke: #111827; stroke-width: 5; stroke-linecap: round; }
+.cartao > p { margin: 4px 0 0; font-size: 24px; }
+
+/* QR code: fundo branco em volta, para o celular ler do projetor */
+.lado-icone > img.qr { background: #FFFFFF; border-radius: 14px; padding: 10px; box-shadow: var(--sombra); }

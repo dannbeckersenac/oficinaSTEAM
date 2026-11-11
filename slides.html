@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oficina STEAM · Treinar uma IA com a webcam</title>
+<link rel="stylesheet" href="assets/css/slides.css">
+<link rel="stylesheet" href="assets/css/encontro.css">
+<link rel="stylesheet" href="assets/css/animacao.css">
+<style>
+  /* só desta oficina */
+  .slide.capa .figura { position: absolute; right: 110px; bottom: 120px; width: 250px; }
+  .slide.capa h1 { max-width: 14ch; }
+  .icones .letra { font-size: 30px; font-weight: 700; color: var(--azul); }
+  td.area { font-weight: 700; color: var(--escuro); white-space: nowrap; }
+  .lado p { font-size: 25px; }
+  .slide.escuro .sub { color: #B9C6DC; }
+  /* cola das letras do STEAM, embaixo da tabela do slide 8 */
+  .cola { display: flex; gap: 14px; margin: 4px 0 14px; }
+  .cola span { background: #FFFFFF; box-shadow: var(--sombra); border-radius: 999px; padding: 8px 20px; font-size: 24px; color: var(--cinza-texto); }
+  .cola b { color: var(--azul); margin-right: 6px; }
+  .comparacao.n3 { grid-template-columns: repeat(3, 1fr); }
+</style>
+</head>
+<!--
+  Roteiro de 11/11 (20h30 às 21h45)
+  20h30  slide 2 na tela enquanto a turma chega (o site só abre no passo 1)
+  20h45  slides 3 a 8: o que é STEAM (15 min)
+  21h00  slides 9 a 11: como a máquina aprende e a escolha do desafio (4 min)
+  21h04  slides 12 a 20: mão na massa, com o exemplo da máscara (33 min)
+  21h37  slides 21 a 23: o STEAM no que eles fizeram (8 min)
+-->
+<body data-etiqueta="Oficina STEAM · Semana do Trabalho">
+<div class="palco">
+
+<!-- 1 · CAPA -->
+<section class="slide capa">
+  <img class="logo" src="assets/img/senac.png" alt="Senac">
+  <div class="corpo">
+    <p class="numero">Oficina STEAM</p>
+    <h1>Treinar uma IA com a webcam</h1>
+    <p class="sub">Hoje vocês vão treinar uma IA com imagens da webcam e testar onde ela erra. Sem precisar programar.</p>
+  </div>
+  <img class="figura" src="assets/img/icones/robo.png" alt="">
+  <div class="rodape"><span>Abordagem STEAM</span><span>Semana do Trabalho · Faculdade Senac</span></div>
+</section>
+
+<!-- 2 · TOLERÂNCIA: fica na tela enquanto a turma chega; o site só entra no passo 1 -->
+<section class="slide escuro">
+  <div class="corpo">
+    <div class="miolo">
+      <h2>Antes de começar</h2>
+      <p class="sub">Escolher um notebook com webcam. Por enquanto, deixar o navegador fechado.</p>
+      <p class="sub">Começamos em alguns minutos.</p>
+    </div>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 3 · PERGUNTA DE ABERTURA -->
+<section class="slide">
+  <div class="corpo">
+    <div class="miolo">
+      <div class="pergunta">
+        <img src="assets/img/icones/duvida.png" alt="">
+        <div>
+          <p>O que uma técnica de enfermagem, um administrador e uma programadora fazem igual no trabalho?</p>
+          <p>Pensem no que cada um faz quando alguma coisa dá errado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 4 · PROBLEMA REAL NÃO VEM SEPARADO POR MATÉRIA -->
+<section class="slide">
+  <div class="corpo">
+    <h2>Um problema pode envolver várias áreas</h2>
+    <div class="miolo">
+      <div class="lado-icone">
+        <div>
+          <p class="intro surge">Na escola, matemática e ciências costumam ter aulas separadas.</p>
+          <p class="intro surge">No trabalho, um mesmo problema pode pedir cálculo e conhecimento de outras áreas.</p>
+          <p class="destaque surge">O STEAM propõe trabalhar essas áreas juntas.</p>
+        </div>
+        <img src="assets/img/icones/engrenagens.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 5 · AS CINCO LETRAS -->
+<section class="slide">
+  <div class="corpo">
+    <h2>STEAM: cinco áreas juntas</h2>
+    <div class="miolo">
+      <div class="icones n5">
+        <figure><img src="assets/img/icones/lupa-info.png" alt=""><span class="letra">S</span><span class="t">Ciência</span><span class="d">perguntar e testar</span></figure>
+        <figure><img src="assets/img/icones/cabeca-ia.png" alt=""><span class="letra">T</span><span class="t">Tecnologia</span><span class="d">escolher ferramentas</span></figure>
+        <figure><img src="assets/img/icones/engrenagens.png" alt=""><span class="letra">E</span><span class="t">Engenharia</span><span class="d">construir e ajustar</span></figure>
+        <figure><img src="assets/img/icones/cabeca-ideias.png" alt=""><span class="letra">A</span><span class="t">Artes</span><span class="d">criar e comunicar</span></figure>
+        <figure><img src="assets/img/icones/grafico.png" alt=""><span class="letra">M</span><span class="t">Matemática</span><span class="d">medir e comparar</span></figure>
+      </div>
+    </div>
+    <p class="dica">As letras vêm do inglês: <b>Science, Technology, Engineering, Arts, Mathematics</b>.</p>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 6 · DE ONDE VEIO O A -->
+<section class="slide">
+  <div class="corpo">
+    <h2>Primeiro veio o STEM. Depois, o A</h2>
+    <div class="miolo">
+      <div class="lado-icone">
+        <div>
+          <p class="intro">STEM reúne ciência, tecnologia, engenharia e matemática numa proposta de ensino.</p>
+          <p class="intro">O STEAM acrescenta as artes a essa proposta.</p>
+          <p class="destaque">As artes entram na criação da solução e na forma de apresentá-la.</p>
+        </div>
+        <img src="assets/img/icones/lampada.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 7 · STEAM COMO CICLO -->
+<section class="slide">
+  <div class="corpo">
+    <h2>Como vamos trabalhar hoje</h2>
+    <p class="intro">Vamos testar uma ideia e ajustar o que falhar. Pode ser preciso voltar a uma etapa.</p>
+    <div class="miolo">
+      <div class="fluxo">
+        <div class="passo"><span class="t">Perguntar</span><span class="d">o que eu quero descobrir?</span></div>
+        <div class="passo"><span class="t">Testar</span><span class="d">funciona mesmo?</span></div>
+        <div class="passo"><span class="t">Conferir</span><span class="d">onde o modelo falhou?</span></div>
+        <div class="passo"><span class="t">Ajustar</span><span class="d">o que eu mudo?</span></div>
+        <div class="passo enfase"><span class="t">Mostrar</span><span class="d">como eu explico?</span></div>
+      </div>
+    </div>
+    <p class="destaque">Na prática, vocês vão treinar o modelo, testar os erros e comparar os resultados.</p>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 8 · STEAM NAS TRÊS ÁREAS DA SALA -->
+<section class="slide">
+  <div class="corpo">
+    <h2>Exemplos de atividades em cada área</h2>
+    <table>
+      <tr><th>Área</th><th>Atividades que podem se combinar</th></tr>
+      <tr><td class="area">Enfermagem</td><td class="neutro">calcular a dose (M), usar a bomba de infusão (T), observar a reação do paciente (S) e explicar o cuidado a ele (A)</td></tr>
+      <tr><td class="area">Administração</td><td class="neutro">levantar os números (M), montar a planilha (T), testar uma mudança no processo (E) e apresentar o resultado (A)</td></tr>
+      <tr><td class="area">Programação</td><td class="neutro">testar uma hipótese sobre o erro (S), escrever o código (T), testar e corrigir (E) e desenhar a tela (A)</td></tr>
+    </table>
+    <p class="cola"><span><b>S</b> Ciência</span><span><b>T</b> Tecnologia</span><span><b>E</b> Engenharia</span><span><b>A</b> Artes</span><span><b>M</b> Matemática</span></p>
+    <p class="dica"><b>Pergunta para a sala:</b> qual dessas áreas vocês usam menos no dia a dia?</p>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 9 · PERGUNTA: COMO A MÁQUINA APRENDE -->
+<section class="slide">
+  <div class="corpo">
+    <div class="miolo">
+      <div class="pergunta">
+        <img src="assets/img/icones/duvida.png" alt="">
+        <div>
+          <p>Como uma máquina aprende a reconhecer alguém usando máscara?</p>
+          <p>Hoje vamos usar fotos como exemplos. Como elas ajudam o modelo a reconhecer a máscara?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 10 · APRENDE COM EXEMPLOS -->
+<section class="slide">
+  <div class="corpo">
+    <h2>O modelo aprende com imagens de exemplo</h2>
+    <div class="miolo">
+      <div class="lado-icone">
+        <div>
+          <p class="intro">Vocês vão separar fotos em classes, como com máscara e sem máscara.</p>
+          <p class="intro">Durante o treino, o modelo procura padrões nas imagens de cada classe.</p>
+          <p class="destaque">Depois, ele usa esses padrões para classificar novas imagens.</p>
+        </div>
+        <img src="assets/img/icones/robo.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 11 · ESCOLHER O DESAFIO -->
+<section class="slide">
+  <div class="corpo">
+    <h2>Escolher um desafio</h2>
+    <table>
+      <tr><th>Desafio</th><th>Pensado para</th><th>Classes para separar as imagens</th></tr>
+      <tr><td class="area">Máscara</td><td class="neutro">Enfermagem</td><td>com máscara · sem máscara · nada</td></tr>
+      <tr><td class="area">Luva</td><td class="neutro">Enfermagem</td><td>com luva · sem luva · nada</td></tr>
+      <tr><td class="area">Documentos</td><td class="neutro">Administração</td><td>nota fiscal · boleto · recibo · nada</td></tr>
+      <tr><td class="area">Gestos</td><td class="neutro">qualquer área</td><td>joinha · mão aberta · nada</td></tr>
+    </table>
+    <p class="dica">A classe <b>nada</b> serve para as imagens do fundo vazio. Sem ela, o modelo ainda escolhe uma das outras classes quando não há ninguém na câmera.</p>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 12 · MÃO NA MASSA 1: ABRIR O SITE -->
+<section class="slide">
+  <div class="corpo">
+    <p class="eyebrow">Mão na massa · passo 1 de 6 · 2 minutos</p>
+    <h2>Abrir o site e ligar a câmera</h2>
+    <ol class="passos">
+      <li>Abrir o <b>Chrome</b>.</li>
+      <li>Entrar em <code>teachablemachine.withgoogle.com/train/image</code></li>
+      <li>Fechar o balão azul de ajuda, no canto esquerdo.</li>
+      <li>Na caixa <b>Class 1</b>, clicar em <b>Webcam</b> e permitir o uso da câmera.</li>
+      <li>Conferir se o rosto aparece no quadrinho. Deixar a gravação para o passo 3.</li>
+    </ol>
+    <p class="dica">Se a imagem não aparecer, levantem a mão que eu passo aí.</p>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 13 · MÃO NA MASSA 2: MONTAR AS CLASSES -->
+<section class="slide">
+  <div class="corpo">
+    <p class="eyebrow">Mão na massa · passo 2 de 6 · 3 minutos</p>
+    <h2>Montar as classes</h2>
+    <ol class="passos">
+      <li>Na caixa <b>Class 1</b>, clicar no lápis e escrever <b>com máscara</b>.</li>
+      <li>Na caixa <b>Class 2</b>, clicar no lápis e escrever <b>sem máscara</b>.</li>
+      <li>Clicar em <b>Add a class</b> e dar o nome <b>nada</b>.</li>
+      <li>Conferir os nomes nas caixas à esquerda.</li>
+    </ol>
+    <p class="dica">Para outro desafio, usar os nomes da tabela. Documentos pede quatro classes. Os próximos passos usam máscara como exemplo.</p>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 14 · MÃO NA MASSA 3: GRAVAR OS EXEMPLOS -->
+<section class="slide">
+  <div class="corpo">
+    <p class="eyebrow">Mão na massa · passo 3 de 6 · 7 minutos</p>
+    <h2>Gravar os exemplos</h2>
+    <ol class="passos">
+      <li>Colocar a máscara. Em <b>com máscara</b>, clicar em <b>Webcam</b> e segurar <b>Hold to Record</b> por uns 5 segundos.</li>
+      <li>Durante a gravação, variar a distância e a posição da cabeça.</li>
+      <li>Tirar a máscara e gravar do mesmo jeito em <b>sem máscara</b>.</li>
+      <li>Em <b>nada</b>, sair da frente da câmera e gravar só o fundo.</li>
+      <li>Conferir se cada caixa tem cerca de <b>100 Image Samples</b>. Gravar mais se faltar.</li>
+    </ol>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 15 · MÃO NA MASSA 4: TREINAR E TESTAR -->
+<section class="slide">
+  <div class="corpo">
+    <p class="eyebrow">Mão na massa · passo 4 de 6 · 5 minutos</p>
+    <h2>Treinar e testar</h2>
+    <ol class="passos">
+      <li>Na caixa <b>Training</b>, clicar em <b>Train Model</b>.</li>
+      <li>Esperar sem trocar de aba. O site avisa: <b>Don't switch tabs!</b> O treino roda no seu notebook.</li>
+      <li>No <b>Preview</b>, à direita, colocar e tirar a máscara na frente da câmera.</li>
+      <li>Fazer 10 tentativas variadas, incluindo as mãos na boca. Anotar os acertos na ficha.</li>
+      <li>Conferir qual barra fica maior em cada tentativa. Uma barra acima de 90% também pode estar errada.</li>
+    </ol>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 16 · MÃO NA MASSA 5: ENGANAR A MÁQUINA -->
+<section class="slide exercicio">
+  <div class="corpo">
+    <p class="eyebrow">Mão na massa · passo 5 de 6 · 7 minutos</p>
+    <h2>Testar situações diferentes</h2>
+    <div class="tarefas">
+      <div class="tarefa"><span class="n">1</span><span class="txt">Sem a máscara, cobrir a boca e o nariz com <b>as duas mãos</b>. O que ela diz?</span></div>
+      <div class="tarefa"><span class="n">2</span><span class="txt">Colocar a <b>folha colorida</b> atrás da cabeça para mudar o fundo.</span></div>
+      <div class="tarefa"><span class="n">3</span><span class="txt">Testar <b>outras distâncias</b> e um ângulo diferente dos usados no treino.</span></div>
+      <div class="tarefa"><span class="n">4</span><span class="txt">Anotar na ficha em qual teste ela errou mais.</span></div>
+    </div>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 17 · PERGUNTA: POR QUE ERROU -->
+<section class="slide">
+  <div class="corpo">
+    <div class="miolo">
+      <div class="pergunta">
+        <img src="assets/img/icones/duvida.png" alt="">
+        <div>
+          <p>Por que ela errou?</p>
+          <p>Que detalhe das fotos pode ter levado o modelo a confundir as classes?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 18 · O QUE ELA APRENDEU DE VERDADE -->
+<section class="slide">
+  <div class="corpo">
+    <h2>O que pode explicar os erros</h2>
+    <div class="comparacao n3">
+      <div class="lado">
+        <p class="rotulo">As mãos na boca</p>
+        <p>O modelo pode estar usando a boca coberta como pista. As mãos também cobrem essa parte do rosto.</p>
+      </div>
+      <div class="lado">
+        <p class="rotulo">O fundo</p>
+        <p>O fundo também aparece nas fotos. Se o modelo usou esse detalhe como pista, mudar o fundo pode atrapalhar.</p>
+      </div>
+      <div class="lado">
+        <p class="rotulo">Quem apareceu</p>
+        <p>O treino usou poucas variações. Outro rosto, outra máscara ou óculos podem mudar o resultado.</p>
+      </div>
+    </div>
+    <p class="destaque">Para investigar, mudar um detalhe por vez e testar de novo.</p>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 19 · MÃO NA MASSA 6: CONSERTAR E MEDIR DE NOVO -->
+<section class="slide exercicio">
+  <div class="corpo">
+    <p class="eyebrow">Mão na massa · passo 6 de 6 · 6 minutos</p>
+    <h2>Adicionar exemplos e testar de novo</h2>
+    <ol class="passos">
+      <li>Em <b>sem máscara</b>, clicar em <b>Webcam</b> e gravar mais exemplos com as mãos na frente da boca.</li>
+      <li>Em cada classe, gravar mais exemplos com a folha colorida atrás.</li>
+      <li>Clicar em <b>Train Model</b> de novo e esperar.</li>
+      <li>Repetir as mesmas 10 tentativas do primeiro teste. Anotar os acertos na ficha.</li>
+      <li>Comparar os acertos dos dois testes na ficha. Verificar se aumentaram.</li>
+    </ol>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 20 · EXTRA: OLHAR POR DENTRO -->
+<section class="slide">
+  <div class="corpo">
+    <p class="eyebrow">Extra · para quem terminou</p>
+    <h2>Consultar os resultados por classe</h2>
+    <ol class="passos">
+      <li>Na caixa <b>Training</b>, abrir <b>Advanced</b> e clicar em <b>Under the hood</b>.</li>
+      <li>Clicar em <b>Calculate accuracy per class</b> e ver quanto ela acerta em cada classe.</li>
+      <li>Clicar em <b>Calculate confusion matrix</b> e descobrir qual classe ela confunde com qual.</li>
+      <li>Para quem programa, clicar em <b>Export Model</b> e ler o exemplo de código para uma página web.</li>
+    </ol>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 21 · O STEAM NO QUE ELES FIZERAM -->
+<section class="slide">
+  <div class="corpo">
+    <h2>Onde usamos cada área na oficina</h2>
+    <div class="miolo">
+      <div class="icones n5">
+        <figure><img src="assets/img/icones/lupa-info.png" alt=""><span class="letra">S</span><span class="d">testaram se o modelo reconhecia a máscara</span></figure>
+        <figure><img src="assets/img/icones/cabeca-ia.png" alt=""><span class="letra">T</span><span class="d">usaram uma ferramenta de IA</span></figure>
+        <figure><img src="assets/img/icones/engrenagens.png" alt=""><span class="letra">E</span><span class="d">ajustaram os exemplos após os testes</span></figure>
+        <figure><img src="assets/img/icones/cabeca-ideias.png" alt=""><span class="letra">A</span><span class="d">escolheram como compor as imagens</span></figure>
+        <figure><img src="assets/img/icones/grafico.png" alt=""><span class="letra">M</span><span class="d">contaram os acertos para comparar os testes</span></figure>
+      </div>
+    </div>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 22 · ISSO ACONTECE FORA DA SALA -->
+<section class="slide">
+  <div class="corpo">
+    <h2>Erros diferentes para grupos diferentes</h2>
+    <div class="miolo">
+      <div class="lado-icone">
+        <div>
+          <p class="intro">Em 2018, o estudo Gender Shades testou três sistemas que classificavam rostos como masculinos ou femininos. O erro chegou a 34,7% para mulheres de pele escura. Para homens de pele clara, ficou em até 0,8%.</p>
+          <p class="intro">O estudo também encontrou pouca diversidade em duas bases de imagens usadas na área.</p>
+          <p class="destaque">Precisamos testar quem o modelo acerta e quem ele erra. Uma média pode esconder essas diferenças.</p>
+        </div>
+        <img src="assets/img/icones/alerta.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+<!-- 23 · FECHAMENTO -->
+<section class="slide escuro">
+  <div class="corpo">
+    <h2>O que vimos na oficina</h2>
+    <ul class="recap">
+      <li>O STEAM propõe combinar áreas para resolver problemas.</li>
+      <li>O modelo da oficina aprendeu a separar imagens com exemplos.</li>
+      <li>O fundo das fotos também pode influenciar o resultado.</li>
+      <li>Os erros ajudam a escolher os próximos exemplos de treino.</li>
+      <li>Repetir o mesmo teste ajuda a avaliar o ajuste.</li>
+    </ul>
+    <p class="proximo">Que exemplos faltariam para testar esse modelo no trabalho de vocês?</p>
+  </div>
+  <div class="rodape"></div>
+</section>
+
+</div>
+<nav class="barra" id="barra"></nav>
+<script src="assets/js/slides.js"></script>
+</body>
+</html>

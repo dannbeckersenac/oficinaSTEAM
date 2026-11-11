@@ -1,0 +1,32 @@
+/* ============================================================
+   Animações da oficina
+   1. Troca de slide: o slide aparece em fade, e o conteúdo sobe um pouco.
+   2. Itens com .surge ficam escondidos e aparecem um por vez, a cada
+      seta para a direita. A seta para a esquerda esconde o último.
+   Só anima a opacidade do .slide: o transform dele é a escala da tela.
+   ============================================================ */
+
+.slide.ativo { animation: aparecer .45s ease-out; }
+.slide.ativo .corpo { animation: subir .5s ease-out; }
+
+@keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }
+@keyframes subir { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+.surge {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.surge.visivel { opacity: 1; transform: none; }
+
+/* quem pediu menos movimento no sistema vê só a troca, sem deslocamento */
+@media (prefers-reduced-motion: reduce) {
+  .slide.ativo, .slide.ativo .corpo { animation: none; }
+  .surge { transform: none; transition: opacity .2s; }
+}
+
+/* no PDF, tudo aparece */
+@media print {
+  .slide, .slide .corpo { animation: none !important; }
+  .surge { opacity: 1 !important; transform: none !important; }
+}

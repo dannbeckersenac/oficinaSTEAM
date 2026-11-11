@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oficina STEAM · Treinar uma IA com a webcam</title>
+<link rel="icon" href="assets/img/icones/robo.png">
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Carlito:wght@400;700&display=swap");
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    font-family: Calibri, Carlito, sans-serif; color: #334155; background: #F2F3F5;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  main { width: 100%; max-width: 760px; padding: 48px 24px 32px; }
+  .topo { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .topo img.logo { width: 120px; }
+  .topo img.robo { width: 110px; }
+  .rotulo { font-size: 20px; font-weight: 700; color: #2563EB; margin: 28px 0 4px; }
+  h1 { font-size: 44px; line-height: 1.1; color: #0F172A; margin: 0 0 12px; }
+  .sub { font-size: 21px; line-height: 1.45; margin: 0 0 32px; }
+  .itens { display: flex; flex-direction: column; gap: 14px; }
+  a.item {
+    display: flex; align-items: center; gap: 20px;
+    background: #FFFFFF; border-radius: 14px; box-shadow: 0 2px 10px rgba(15, 23, 42, .07);
+    padding: 18px 24px; text-decoration: none; color: inherit;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  a.item:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(15, 23, 42, .12); }
+  a.item img { width: 54px; height: 54px; object-fit: contain; flex-shrink: 0; }
+  .t { display: block; font-size: 23px; font-weight: 700; color: #0F172A; }
+  .d { display: block; font-size: 18px; color: #64748B; margin-top: 2px; }
+  a.item.principal { background: #2563EB; }
+  a.item.principal .t { color: #FFFFFF; }
+  a.item.principal .d { color: #DBE7FF; }
+  a.item.pratica { background: #4F46E5; }
+  a.item.pratica .t { color: #FFFFFF; }
+  a.item.pratica .d { color: #E0DEFF; }
+  .casa { margin-top: 32px; font-size: 18px; line-height: 1.5; }
+  .casa b { color: #0F172A; }
+  footer { font-size: 15px; color: #8A96AA; padding: 0 24px 32px; text-align: center; }
+  @media (max-width: 560px) {
+    h1 { font-size: 34px; }
+    .topo img.robo { display: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="topo">
+    <img class="logo" src="assets/img/senac.png" alt="Senac">
+    <img class="robo" src="assets/img/icones/robo.png" alt="">
+  </div>
+
+  <p class="rotulo">Oficina STEAM · Semana do Trabalho</p>
+  <h1>Treinar uma IA com a webcam</h1>
+  <p class="sub">Treine uma IA com imagens da webcam e teste onde ela erra. Sem precisar programar.</p>
+
+  <div class="itens">
+    <a class="item principal" href="slides.html">
+      <img src="assets/img/icones/cabeca-ideias.png" alt="">
+      <span><span class="t">Ver os slides</span><span class="d">Abre a apresentação no navegador. Use as setas do teclado.</span></span>
+    </a>
+    <a class="item pratica" href="https://teachablemachine.withgoogle.com/train/image" target="_blank" rel="noopener">
+      <img src="assets/img/icones/robo.png" alt="">
+      <span><span class="t">Abrir o Teachable Machine</span><span class="d">O site do Google em que fazemos a prática. Abre em outra aba.</span></span>
+    </a>
+    <a class="item" href="downloads/oficina-steam-slides.pdf" download>
+      <img src="assets/img/icones/lampada.png" alt="">
+      <span><span class="t">Baixar os slides em PDF</span><span class="d">Os 23 slides, um por página.</span></span>
+    </a>
+    <a class="item" href="downloads/ficha-de-teste.pdf" download>
+      <img src="assets/img/icones/grafico.png" alt="">
+      <span><span class="t">Baixar a ficha de teste</span><span class="d">Para anotar os acertos da máquina. Duas fichas por folha A4.</span></span>
+    </a>
+  </div>
+
+  <p class="casa"><b>Para refazer em casa:</b> você precisa de um computador com webcam e do navegador Chrome. Não precisa criar conta. As fotos ficam no seu computador, e o treino roda no próprio navegador. Ao fechar a aba, nada fica salvo.</p>
+</main>
+<footer>Abordagem STEAM · Semana do Trabalho · Faculdade Senac</footer>
+</body>
+</html>

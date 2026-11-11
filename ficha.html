@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Ficha de teste · Oficina STEAM</title>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Carlito:wght@400;700&display=swap");
+  @page { size: A4; margin: 10mm; }
+  * { box-sizing: border-box; }
+  body { font-family: Calibri, Carlito, sans-serif; color: #0F172A; margin: 0; }
+  .ficha { height: 136mm; border: 1.5px dashed #94A3B8; border-radius: 4mm; padding: 6mm 8mm; margin-bottom: 4mm; display: flex; flex-direction: column; gap: 3mm; }
+  h1 { font-size: 17pt; margin: 0; }
+  h1 span { color: #2563EB; }
+  .linha { font-size: 12pt; display: flex; gap: 6mm; }
+  .linha div { flex: 1; border-bottom: 1px solid #334155; padding-bottom: 1mm; }
+  h2 { font-size: 12.5pt; margin: 1mm 0 0; color: #2563EB; }
+  table { table-layout: fixed; border-collapse: collapse; width: 100%; font-size: 11pt; }
+  td, th { border: 1px solid #94A3B8; text-align: center; padding: 1.2mm 0; height: 8mm; }
+  th { background: #E2E8F0; font-weight: 700; }
+  td:first-child, th:first-child { text-align: left; padding-left: 2mm; width: 34mm; }
+  .total { font-size: 12pt; margin: 0; }
+  .marcas { font-size: 11.5pt; display: flex; gap: 6mm; flex-wrap: wrap; margin: 0; }
+  .dica { font-size: 10pt; color: #475569; margin: 0; }
+  @media screen { body { max-width: 210mm; margin: 10mm auto; } }
+</style>
+</head>
+<body>
+<!-- duas fichas por folha A4: imprimir e cortar na linha tracejada -->
+<script>
+  var ficha = `
+  <section class="ficha">
+    <h1>Treinar uma IA com a webcam <span>· ficha de teste</span></h1>
+    <div class="linha"><div>Nome:</div><div>Desafio:</div></div>
+    <h2>Teste 1 · depois do primeiro treino</h2>
+    <table>
+      <tr><th>Tentativa</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
+      <tr><td>Acertou? ✓ ou ✗</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+    <p class="total">Acertos: ____ de 10 = ____ %</p>
+    <h2>Situações diferentes · onde o modelo errou?</h2>
+    <p class="marcas"><span>☐ mãos na boca</span><span>☐ outro fundo</span><span>☐ perto ou longe</span><span>☐ outro ângulo</span></p>
+    <h2>Teste 2 · depois de adicionar exemplos</h2>
+    <table>
+      <tr><th>Tentativa</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
+      <tr><td>Acertou? ✓ ou ✗</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+    <p class="total">Acertos: ____ de 10 = ____ %. Melhorou? ☐ sim ☐ não</p>
+    <p class="dica">Repetir as mesmas 10 tentativas nos dois testes. Para calcular: 7 acertos em 10 = 70%.</p>
+  </section>`;
+  document.write(ficha + ficha);
+</script>
+</body>
+</html>
